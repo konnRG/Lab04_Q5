@@ -1,7 +1,8 @@
 <template>
   <div class="event-card" v-if="event">
-    <h4>Name: {{ event.name }}</h4>
-    <p>Trips: {{ event.trips }}</p>
+    <router-link :to="{ name: 'EventDetailView', params: { id: event._id } }">
+      <h4>Name: {{ event.name }}</h4>
+    </router-link>
   </div>
 </template>
 

@@ -1,4 +1,5 @@
 <template>
+  <h1>Passengers:</h1>
   <div class="home">
     <template v-for="event1 in events">
       <EventCard
