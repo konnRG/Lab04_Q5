@@ -18,6 +18,8 @@
 <script>
 import EventService from '@/services/EventService'
 
+var count = 0
+
 export default {
   props: ['id'],
   data() {
@@ -30,7 +32,16 @@ export default {
       .then((response) => {
         response.data.forEach((obj) => {
           obj.data.forEach((obj) => {
-            this.event = obj
+            if (obj._id == this.id) {
+              this.event = obj
+              count += 1
+            }
+            if (count + Object.keys(obj).length == Object.keys(obj).length) {
+              this.$router.push({
+                name: '404Resource',
+                params: { resource: this.id }
+              })
+            }
           })
         })
       })
